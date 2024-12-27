@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --theme-primary: theme('colors.blue.500');
+    --theme-secondary: theme('colors.blue.600');
+    --theme-accent: theme('colors.blue.700');
+    --theme-background: theme('colors.white');
+    --theme-text: theme('colors.gray.900');
+    --theme-border: theme('colors.gray.200');
+    --theme-hover: theme('colors.gray.100');
+  }
+
+  .dark {
+    --theme-primary: theme('colors.blue.400');
+    --theme-secondary: theme('colors.blue.500');
+    --theme-accent: theme('colors.blue.600');
+    --theme-background: theme('colors.gray.900');
+    --theme-text: theme('colors.white');
+    --theme-border: theme('colors.gray.800');
+    --theme-hover: theme('colors.gray.800');
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-full;
+    background-color: var(--theme-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background-color: var(--theme-primary);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--theme-secondary);
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme-primary) var(--theme-background);
+  }
+}
+
+/* Hide scrollbar for webkit in mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
